@@ -21,9 +21,9 @@ def meeting_place(loc1: str, loc2, str):
 def gfg():
     if request.method == "POST":
         # getting input with name = fname in HTML form
-        first_name = request.form.get("loc1")
+        loc1 = request.form.get("loc1")
         # getting input with name = lname in HTML form
-        last_name = request.form.get("loc2")
+        loc2 = request.form.get("loc2")
         return "Your (Lat, Long) is " + meeting_place(loc1, loc2)
     return render_template("index.html")
 
