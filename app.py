@@ -1,21 +1,18 @@
 # importing Flask and other modules
 from flask import Flask, request, render_template
 
-import requests
-import urllib.parse
+from geopy.geocoders import Nominatim
 
 # Flask constructor
 app = Flask(__name__)
 
 
 def meeting_place(loc1: str, loc2, str):
-    url1 = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(loc1) + '?format=json'
-    url2 = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(loc2) + '?format=json'
+    locator = Nominatim(user_agent="find-a-meeting-place")
+    location1 = locator.geocode(loc1)
+    location2 = locator.geocode(loc2)
 
-    response1 = requests.get(url1).json()
-    response2 = requests.get(url2).json()
-
-    return f'({response1[0]["lat"]}, {response1[0]["lon"]})'
+    return f'({location1.latitude}, {location1.longitude})'
 
 
 # A decorator used to tell the application
