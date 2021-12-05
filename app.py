@@ -7,7 +7,7 @@ from geopy.geocoders import Nominatim
 app = Flask(__name__)
 
 
-def meeting_place(loc1: str, loc2, str):
+def meeting_place(loc1: str, loc2: str):
     locator = Nominatim(user_agent="find-a-meeting-place")
     location1 = locator.geocode(loc1)
     location2 = locator.geocode(loc2)
