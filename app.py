@@ -12,7 +12,7 @@ def meeting_place(loc1: str, loc2: str):
     location1 = locator.geocode(loc1)
     location2 = locator.geocode(loc2)
 
-    return f'({location1.latitude}, {location1.longitude})'
+    return f'{loc1} {loc2} ({location1.latitude}, {location1.longitude})'
 
 
 # A decorator used to tell the application
