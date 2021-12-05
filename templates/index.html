@@ -25,10 +25,11 @@
     <h1>Welcome!</h1><br>
     <p>This site has been visited {{ count }} times.</p>
     <p>Enter your locations</p>
-    <form>
+    <form action="{{ url_for("gfg")}}" method="post">
         <label for="fname">Loctation 1:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Location 2:</label><br>
         <input type="text" id="lname" name="lname">
+        <button type="submit">Login</button>
     </form>
 </div>
