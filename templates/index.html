@@ -23,12 +23,39 @@
 
 <div>
     <h1>Welcome!</h1><br>
-    <p>Enter your locations</p>
-    <form action="{{ url_for("gfg")}}" method="post">
-        <label for="fname">Loctation 1:</label><br>
-        <input type="text" id="loc1" name="loc1"><br>
-        <label for="lname">Location 2:</label><br>
-        <input type="text" id="loc2" name="loc2"><br>
-        <button type="submit">Find a Meeting Place</button>
-    </form>
+
 </div>
+
+<head>
+    <script type='text/javascript'>
+        function addFields(){
+            // Number of inputs to create
+            var number = document.getElementById("member").value;
+            // Container <div> where dynamic content will be placed
+            var container = document.getElementById("container");
+            // Clear previous contents of the container
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<number;i++){
+                // Append a node with a random text
+                container.appendChild(document.createTextNode("Address " + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "Address" + (i+1);
+                container.appendChild(input);
+                // Append a line break
+                container.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="{{ url_for("gfg")}}" method="post">
+        <button type="submit">Find a Meeting Place</button>
+        <input type="text" id="member" name="member" value="">How many addresses do you have?<br />
+        <a href="#" id="filldetails" onclick="addFields()">Fill Details</a>
+        <div id="container"/><br>
+    </form>
+</body>
