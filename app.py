@@ -27,8 +27,8 @@ def meeting_place(locs: list):
         ).add_to(folium_map)
     folium.Marker(
         location=start_coords,
-        popup=f"Center.  Find Restaurants here: https://www.google.com/maps/search/Restaurants/@{start_coords[0]},{start_coords[1]},11z",
-        tooltip="Center",
+        popup=f"Center    Latitude: {start_coords[0]} Longitude: {start_coords[1]} <a href=https://www.google.com/maps/search/Restaurants/@{start_coords[0]},{start_coords[1]},11z>Find Restaurants here</a>",
+        tooltip="Center    Click for more information",
         icon=folium.Icon(color="green", icon="ok"),
     ).add_to(folium_map)
 
